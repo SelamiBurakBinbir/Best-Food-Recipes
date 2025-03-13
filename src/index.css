@@ -1,13 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Karanlık Mod Takvim Düzeltmesi */
+:root {
+  --calendar-bg: #fff;
+  --calendar-text: #000;
+}
+.dark {
+  --calendar-bg: #1f2937;
+  --calendar-text: #fff;
+}
+
+.react-calendar-custom {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+
+  .dark & {
+    border-color: #444;
+  }
+  background-color: var(--calendar-bg) !important;
+  color: var(--calendar-text) !important;
+
+  /* TAKVİMİN SABİT EN VE BOYU */
+  width: 1000px !important;
+  height: 400px !important;
+  overflow: hidden;
+
+  font-size: 1.1rem;
+
+  padding: 0.5rem;
+}
+
+/* Takvim hücreleri */
+.react-calendar-custom .react-calendar__tile {
+  background-color: var(--calendar-bg) !important;
+  color: var(--calendar-text) !important;
+  border-radius: 4px;
+}
+
+/* Aktif gün */
+.react-calendar-custom .react-calendar__tile--active {
+  background-color: #f87171 !important; /* red-400 */
+  color: #fff !important;
+}
+
+/* Hover */
+.react-calendar-custom .react-calendar__tile:hover {
+  background-color: #e5e7eb !important; /* gray-200 */
+  color: #000 !important;
+}
+
+/* Önceki/Sonraki ay butonları */
+.react-calendar-custom .react-calendar__navigation button {
+  background: var(--calendar-bg) !important;
+  color: var(--calendar-text) !important;
+  border: none !important;
+  margin: 2px;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+.react-calendar-custom .react-calendar__navigation button:hover {
+  background-color: #e5e7eb !important;
+  color: #000 !important;
 }
